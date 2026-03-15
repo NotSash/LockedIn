@@ -1,11 +1,12 @@
 package com.lockedin.app.domain.usecase.password
 
 import com.lockedin.app.domain.model.PasswordEntry
+import javax.inject.Inject
 
 /**
  * Pure in-memory sorting of password lists according to the configured mode.
  */
-class SortPasswordsUseCase {
+class SortPasswordsUseCase @Inject constructor() {
 
     operator fun invoke(
         passwords: List<PasswordEntry>,

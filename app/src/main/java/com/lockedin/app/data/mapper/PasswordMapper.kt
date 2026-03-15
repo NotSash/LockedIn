@@ -4,6 +4,7 @@ import com.lockedin.app.core.security.CryptoManager
 import com.lockedin.app.data.local.converter.CustomField
 import com.lockedin.app.data.local.converter.LockedInTypeConverters
 import com.lockedin.app.data.local.entity.PasswordEntity
+import javax.inject.Inject
 
 /**
  * Decrypted password DTO used at the data layer.
@@ -32,7 +33,7 @@ data class PasswordData(
     val lastUsedAt: Long?
 )
 
-class PasswordMapper(
+class PasswordMapper @Inject constructor(
     private val cryptoManager: CryptoManager
 ) {
 
