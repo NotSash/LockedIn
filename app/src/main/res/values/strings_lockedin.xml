@@ -1,0 +1,8 @@
+<resources>
+    <string name="lockedin_tagline">Military-grade password vault</string>
+    <string name="lockedin_security_report">Security Report</string>
+    <string name="lockedin_generator">Password Generator</string>
+    <string name="lockedin_categories">Categories</string>
+    <string name="lockedin_settings">Settings</string>
+</resources>
+

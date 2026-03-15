@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Background rounded rectangle with dark navy tone -->
+    <path
+        android:fillColor="#0A0E1A"
+        android:pathData="M8,6h32a4,4 0 0 1 4,4v28a4,4 0 0 1 -4,4h-32a4,4 0 0 1 -4,-4v-28a4,4 0 0 1 4,-4z" />
+
+    <!-- Accent gradient lock body approximation using two overlapping shapes -->
+    <path
+        android:fillColor="#7C4DFF"
+        android:pathData="M16,22h16a2.5,2.5 0 0 1 2.5,2.5v11a2.5,2.5 0 0 1 -2.5,2.5h-16a2.5,2.5 0 0 1 -2.5,-2.5v-11a2.5,2.5 0 0 1 2.5,-2.5z" />
+
+    <path
+        android:fillColor="#4000E0"
+        android:fillAlpha="0.8"
+        android:pathData="M18,21h14a3,3 0 0 1 3,3v9a3,3 0 0 1 -3,3h-14a3,3 0 0 1 -3,-3v-9a3,3 0 0 1 3,-3z" />
+
+    <!-- Lock shackle -->
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M18,22v-3.5c0,-4 2.8,-7 6,-7s6,3 6,7v3.5h-3v-3.5c0,-2.5 -1.6,-4 -3,-4s-3,1.5 -3,4v3.5z" />
+
+    <!-- Keyhole circle -->
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M24,26.5a2.5,2.5 0 1 1 0,5 2.5,2.5 0 0 1 0,-5z" />
+
+    <!-- Keyhole stem -->
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M22.8,31.5h2.4v3.5h-2.4z" />
+
+    <!-- Subtle cyan glow ring -->
+    <path
+        android:fillColor="#00E5FF"
+        android:fillAlpha="0.25"
+        android:pathData="M24,10a12,12 0 1 1 0,24 12,12 0 0 1 0,-24z" />
+</vector>
+
