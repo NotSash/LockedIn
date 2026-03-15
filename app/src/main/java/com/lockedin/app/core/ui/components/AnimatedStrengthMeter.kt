@@ -27,10 +27,10 @@ import com.lockedin.app.core.ui.theme.DarkWarning
  */
 @Composable
 fun AnimatedStrengthMeter(
-    score: Int,
+    strengthScore: Int,
     modifier: Modifier = Modifier
 ) {
-    val clamped = score.coerceIn(0, 100)
+    val clamped = strengthScore.coerceIn(0, 100)
 
     val targetFraction = when {
         clamped < 25 -> 0.25f
