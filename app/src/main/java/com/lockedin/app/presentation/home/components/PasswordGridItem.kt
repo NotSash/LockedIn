@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -35,10 +36,8 @@ fun PasswordGridItem(
         modifier = modifier
             .fillMaxWidth()
             .clickable(
-                onClick = { callbacks.onClick(entry) },
-                onLongClick = { callbacks.onLongPress(entry) }
-            ),
-        accentColor = Color(entry.colorLabel)
+                onClick = { callbacks.onClick(entry) }
+            )
     ) {
         Column(
             modifier = Modifier
@@ -49,7 +48,7 @@ fun PasswordGridItem(
             FaviconGrid(
                 siteName = entry.siteName,
                 faviconUrl = entry.faviconUrl,
-                colorHex = entry.colorLabel
+                colorHex = entry.colorLabelHex
             )
 
             Spacer(modifier = Modifier.height(8.dp))

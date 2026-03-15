@@ -144,7 +144,7 @@ fun LoginScreen(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 NeumorphicPinPad(
-                    digitsEntered = state.pinInput.length,
+                    digitsEntered = state.pinDigits.length,
                     onDigit = { viewModel.onPinDigit(it) },
                     onBackspace = { viewModel.onPinBackspace() },
                     modifier = Modifier

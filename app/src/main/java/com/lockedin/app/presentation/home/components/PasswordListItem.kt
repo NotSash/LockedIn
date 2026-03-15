@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -44,20 +45,18 @@ fun PasswordListItem(
         modifier = modifier
             .fillMaxWidth()
             .clickable(
-                onClick = { callbacks.onClick(entry) },
-                onLongClick = { callbacks.onLongPress(entry) }
-            ),
-        accentColor = Color(entry.colorLabel)
+                onClick = { callbacks.onClick(entry) }
+            )
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            Favicon(
-                siteName = entry.siteName,
-                faviconUrl = entry.faviconUrl,
-                colorHex = entry.colorLabel
-            )
+                Favicon(
+                    siteName = entry.siteName,
+                    faviconUrl = entry.faviconUrl,
+                    colorHex = entry.colorLabelHex
+                )
 
             Column(
                 modifier = Modifier.weight(1f),
@@ -82,8 +81,7 @@ fun PasswordListItem(
                 )
                 Text(
                     text = entry.category,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = Color(entry.colorLabel).copy(alpha = 0.9f)
+                    style = MaterialTheme.typography.labelSmall
                 )
             }
 
