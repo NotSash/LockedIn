@@ -6,6 +6,7 @@ import com.lockedin.app.data.mapper.PasswordMapper
 import com.lockedin.app.data.repository.BreachRepositoryImpl
 import com.lockedin.app.data.repository.CategoryRepositoryAdapter
 import com.lockedin.app.data.repository.CategoryRepositoryImpl
+import com.lockedin.app.data.repository.HistoryRepositoryAdapter
 import com.lockedin.app.data.repository.HistoryRepositoryImpl
 import com.lockedin.app.data.repository.PasswordRepositoryImpl
 import com.lockedin.app.data.remote.HibpApi
@@ -91,23 +92,9 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideHistoryRepository(
-        impl: HistoryRepositoryImpl
-    ): HistoryRepository = object : HistoryRepository {
-        override fun getRecent(limit: Int) =
-            impl.getRecent(limit).map { list -> list.map { it.toDomain() } }
-
-        override suspend fun add(entry: com.lockedin.app.domain.model.PasswordHistory) {
-            impl.add(entry.toData())
-        }
-
-        override suspend fun delete(id: Long) {
-            impl.delete(id)
-        }
-
-        override suspend fun clearAll() {
-            impl.clearAll()
-        }
-    }
+        impl: HistoryRepositoryImpl,
+        mapper: HistoryMapper
+    ): HistoryRepository = HistoryRepositoryAdapter(impl, mapper)
 
     @Provides
     @Singleton

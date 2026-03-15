@@ -5,6 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.kotlin.kapt")
     id("com.google.dagger.hilt.android")
+    id("androidx.room")
 }
 
 android {
@@ -71,8 +72,14 @@ android {
     }
 }
 
+// Configure annotation processors (Room, Hilt, etc.)
 kapt {
     correctErrorTypes = true
+}
+
+// Room Gradle plugin configuration for schema export
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 dependencies {
