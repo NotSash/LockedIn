@@ -2,18 +2,15 @@ package com.lockedin.app.widget
 
 import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
-import androidx.glance.appwidget.GlanceAppWidgetReceiver
-import androidx.glance.appwidget.appWidgetBackground
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
+import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.Column
 import androidx.glance.layout.fillMaxSize
@@ -45,7 +42,7 @@ private fun SmallWidgetContent() {
         modifier = GlanceModifier
             .fillMaxSize()
             .appWidgetBackground()
-            .background(GlanceTheme.colors.background)
+            .background(ColorProvider(androidx.compose.ui.graphics.Color(0xFF0A0E1A)))
             .padding(12.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -54,12 +51,12 @@ private fun SmallWidgetContent() {
         ) {
             Text(
                 text = "🔒",
-                style = TextStyle(color = ColorProvider(GlanceTheme.colors.onBackground))
+                style = TextStyle(color = ColorProvider(androidx.compose.ui.graphics.Color(0xFFF1F5F9)))
             )
             androidx.glance.layout.Spacer(modifier = GlanceModifier.padding(4.dp))
             Text(
                 text = "Generate",
-                style = TextStyle(color = ColorProvider(GlanceTheme.colors.primary)),
+                style = TextStyle(color = ColorProvider(androidx.compose.ui.graphics.Color(0xFF7C4DFF))),
                 modifier = GlanceModifier.clickable(
                     onClick = actionStartActivity(MainActivity::class.java)
                 )

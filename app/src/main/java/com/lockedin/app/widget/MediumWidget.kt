@@ -2,8 +2,6 @@ package com.lockedin.app.widget
 
 import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
@@ -13,6 +11,7 @@ import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.appWidgetBackground
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
+import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.Column
 import androidx.glance.layout.Row
@@ -47,28 +46,26 @@ private fun MediumWidgetContent() {
         modifier = GlanceModifier
             .fillMaxSize()
             .appWidgetBackground()
-            .background(GlanceTheme.colors.background)
+            .background(ColorProvider(androidx.compose.ui.graphics.Color(0xFF0A0E1A)))
             .padding(12.dp),
         verticalAlignment = Alignment.Top,
         horizontalAlignment = Alignment.Start
     ) {
-        // Search bar
         Box(
             modifier = GlanceModifier
                 .fillMaxWidth()
-                .background(GlanceTheme.colors.background.copy(alpha = 0.2f))
+                .background(ColorProvider(androidx.compose.ui.graphics.Color(0x33FFFFFF)))
                 .padding(horizontal = 8.dp, vertical = 6.dp)
                 .clickable(onClick = actionStartActivity(MainActivity::class.java))
         ) {
             Text(
                 text = "Search LockedIn",
-                style = TextStyle(color = ColorProvider(GlanceTheme.colors.onBackground.copy(alpha = 0.7f)))
+                style = TextStyle(color = ColorProvider(androidx.compose.ui.graphics.Color(0xB3F1F5F9)))
             )
         }
 
         androidx.glance.layout.Spacer(modifier = GlanceModifier.padding(6.dp))
 
-        // Recent items placeholder
         Column(
             verticalAlignment = Alignment.Top
         ) {
@@ -82,7 +79,7 @@ private fun MediumWidgetContent() {
                 ) {
                     Text(
                         text = "Recent ${index + 1}",
-                        style = TextStyle(color = ColorProvider(GlanceTheme.colors.onBackground))
+                        style = TextStyle(color = ColorProvider(androidx.compose.ui.graphics.Color(0xFFF1F5F9)))
                     )
                 }
             }
@@ -92,7 +89,7 @@ private fun MediumWidgetContent() {
 
         Text(
             text = "Generate",
-            style = TextStyle(color = ColorProvider(GlanceTheme.colors.primary)),
+            style = TextStyle(color = ColorProvider(androidx.compose.ui.graphics.Color(0xFF7C4DFF))),
             modifier = GlanceModifier
                 .clickable(onClick = actionStartActivity(MainActivity::class.java))
         )

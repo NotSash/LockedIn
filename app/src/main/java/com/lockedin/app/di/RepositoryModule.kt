@@ -154,7 +154,7 @@ private fun com.lockedin.app.data.mapper.PasswordData.toDomain(): com.lockedin.a
         username = username,
         password = password,
         faviconUrl = faviconUrl,
-        colorLabelHex = colorLabelHex,
+        colorLabelHex = colorLabel,
         category = category,
         tags = tags,
         notes = notes,
@@ -162,14 +162,14 @@ private fun com.lockedin.app.data.mapper.PasswordData.toDomain(): com.lockedin.a
             com.lockedin.app.domain.model.CustomField(label = it.label, value = it.value)
         },
         totpSecret = totpSecret,
-        strengthScore = strengthScore,
-        strengthBucket = strengthBucket,
+        strengthScore = passwordStrength,
+        strengthBucket = com.lockedin.app.domain.model.PasswordStrength.fromScore(passwordStrength),
         isCompromised = isCompromised,
         compromiseCount = compromiseCount,
         timesUsed = timesUsed,
-        createdAtMillis = createdAtMillis,
-        updatedAtMillis = updatedAtMillis,
-        lastUsedAtMillis = lastUsedAtMillis
+        createdAtMillis = createdAt,
+        updatedAtMillis = updatedAt,
+        lastUsedAtMillis = lastUsedAt
     )
 
 private fun com.lockedin.app.domain.model.PasswordEntry.toData(): com.lockedin.app.data.mapper.PasswordData =
@@ -180,7 +180,7 @@ private fun com.lockedin.app.domain.model.PasswordEntry.toData(): com.lockedin.a
         username = username,
         password = password,
         faviconUrl = faviconUrl,
-        colorLabelHex = colorLabelHex,
+        colorLabel = colorLabelHex,
         category = category,
         tags = tags,
         notes = notes,
@@ -188,14 +188,13 @@ private fun com.lockedin.app.domain.model.PasswordEntry.toData(): com.lockedin.a
             com.lockedin.app.data.local.converter.CustomField(label = it.label, value = it.value)
         },
         totpSecret = totpSecret,
-        strengthScore = strengthScore,
-        strengthBucket = strengthBucket,
+        passwordStrength = strengthScore,
         isCompromised = isCompromised,
         compromiseCount = compromiseCount,
         timesUsed = timesUsed,
-        createdAtMillis = createdAtMillis,
-        updatedAtMillis = updatedAtMillis,
-        lastUsedAtMillis = lastUsedAtMillis
+        createdAt = createdAtMillis,
+        updatedAt = updatedAtMillis,
+        lastUsedAt = lastUsedAtMillis
     )
 
 private fun com.lockedin.app.data.mapper.PasswordHistoryData.toDomain():
@@ -203,11 +202,11 @@ private fun com.lockedin.app.data.mapper.PasswordHistoryData.toDomain():
     com.lockedin.app.domain.model.PasswordHistory(
         id = id,
         password = password,
-        strengthScore = strengthScore,
+        strengthScore = strength,
         length = length,
         characterTypes = characterTypes.toDomain(),
-        wasSavedToVault = wasSavedToVault,
-        createdAtMillis = createdAtMillis
+        wasSavedToVault = wasSaved,
+        createdAtMillis = createdAt
     )
 
 private fun com.lockedin.app.domain.model.PasswordHistory.toData():
@@ -215,11 +214,11 @@ private fun com.lockedin.app.domain.model.PasswordHistory.toData():
     com.lockedin.app.data.mapper.PasswordHistoryData(
         id = id,
         password = password,
-        strengthScore = strengthScore,
+        strength = strengthScore,
         length = length,
         characterTypes = characterTypes.toData(),
-        wasSavedToVault = wasSavedToVault,
-        createdAtMillis = createdAtMillis
+        wasSaved = wasSavedToVault,
+        createdAt = createdAtMillis
     )
 
 private fun com.lockedin.app.data.local.converter.CharacterTypes.toDomain():

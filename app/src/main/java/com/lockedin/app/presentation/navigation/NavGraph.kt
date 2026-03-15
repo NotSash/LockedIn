@@ -18,6 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import com.lockedin.app.core.security.BiometricHelper
 import com.lockedin.app.core.security.SecureClipboardManager
 import com.lockedin.app.core.ui.components.AnimatedBottomNavBar
+import com.lockedin.app.core.ui.components.BottomNavItemUi
 import com.lockedin.app.presentation.addEdit.AddEditScreen
 import com.lockedin.app.presentation.addEdit.AddEditViewModel
 import com.lockedin.app.presentation.auth.setup.MasterPasswordSetupScreen
@@ -48,11 +49,19 @@ fun LockedInRootNav(
         Scaffold(
             bottomBar = {
                 if (currentRoute in BottomNavItem.values().map { it.screen.route }) {
+                    val items = BottomNavItem.values().map {
+                        BottomNavItemUi(
+                            key = it.screen.route,
+                            label = it.label,
+                            icon = it.icon,
+                            selectedIcon = it.icon
+                        )
+                    }
                     AnimatedBottomNavBar(
-                        items = BottomNavItem.values().toList(),
-                        currentRoute = currentRoute ?: Screen.Home.route,
-                        onItemSelected = { item ->
-                            navController.navigate(item.screen.route) {
+                        items = items,
+                        selectedKey = currentRoute ?: Screen.Home.route,
+                        onItemSelected = { route ->
+                            navController.navigate(route) {
                                 launchSingleTop = true
                                 restoreState = true
                                 popUpTo(Screen.Home.route) { saveState = true }

@@ -81,7 +81,8 @@ fun PasswordListItem(
                 )
                 Text(
                     text = entry.category,
-                    style = MaterialTheme.typography.labelSmall
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
@@ -103,10 +104,9 @@ fun PasswordListItem(
 @Composable
 private fun Favicon(
     siteName: String,
-    faviconUrl: String?,
-    colorHex: String
+    faviconUrl: String?
 ) {
-    val bgColor = Color(colorHex)
+    val bgColor = MaterialTheme.colorScheme.primary
     Box(
         modifier = Modifier
             .size(44.dp)

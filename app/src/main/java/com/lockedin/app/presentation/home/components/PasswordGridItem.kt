@@ -47,8 +47,7 @@ fun PasswordGridItem(
         ) {
             FaviconGrid(
                 siteName = entry.siteName,
-                faviconUrl = entry.faviconUrl,
-                colorHex = entry.colorLabelHex
+                faviconUrl = entry.faviconUrl
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -80,10 +79,9 @@ fun PasswordGridItem(
 @Composable
 private fun FaviconGrid(
     siteName: String,
-    faviconUrl: String?,
-    colorHex: String
+    faviconUrl: String?
 ) {
-    val bgColor = Color(colorHex)
+    val bgColor = MaterialTheme.colorScheme.primary
     Box(
         modifier = Modifier
             .size(56.dp)
