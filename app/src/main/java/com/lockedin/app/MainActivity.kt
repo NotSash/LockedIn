@@ -1,47 +1,67 @@
 package com.lockedin.app
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.lockedin.app.ui.theme.LockedInTheme
+import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.WindowCompat
+import com.lockedin.app.core.ui.theme.LockedInTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * MainActivity hosts the entire Compose navigation graph.
+ *
+ * SECURITY:
+ * - Applies FLAG_SECURE to block screenshots and screen recording by default.
+ *   This will later be controlled by a user setting.
+ * - No sensitive data is passed via Intent extras; secrets remain either
+ *   encrypted at rest or in-memory inside ViewModels.
+ */
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Install Android 12+ splash before super.onCreate
+        val splashScreen: SplashScreen = installSplashScreen()
+
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        // SECURITY: prevent screenshots / screen recording globally by default.
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_SECURE,
+            WindowManager.LayoutParams.FLAG_SECURE
+        )
+
+        // Draw behind system bars; the design system will handle insets.
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
             LockedInTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                LockedInRoot()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    LockedInTheme {
-        Greeting("Android")
+private fun LockedInRoot() {
+    Surface(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(text = "LockedIn • Core Setup")
+        }
     }
 }
