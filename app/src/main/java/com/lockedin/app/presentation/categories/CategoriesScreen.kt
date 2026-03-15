@@ -12,8 +12,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.ArrowBack
@@ -50,7 +51,7 @@ fun CategoriesScreen(
     viewModel: CategoriesViewModel = hiltViewModel(),
     callbacks: CategoriesCallbacks
 ) {
-    val state by viewModel.uiState
+    val state = viewModel.uiState.value
     val snackbarHostState = remember { SnackbarHostState() }
 
     Scaffold(
@@ -92,7 +93,7 @@ fun CategoriesScreen(
                 )
             } else {
                 LazyVerticalGrid(
-                    cells = GridCells.Fixed(2),
+                    columns = GridCells.Fixed(2),
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(vertical = 8.dp),
                     verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -139,7 +140,7 @@ private fun CategoryCard(
     onClick: () -> Unit
 ) {
     val color = Color(colorHex)
-    ClaymorphicCard(
+                ClaymorphicCard(
         modifier = Modifier
             .fillMaxWidth()
             .height(120.dp)

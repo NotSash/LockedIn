@@ -2,6 +2,7 @@ package com.lockedin.app.di
 
 import com.lockedin.app.data.remote.HibpApi
 import com.lockedin.app.data.remote.HibpService
+import com.lockedin.app.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -79,9 +79,7 @@ fun MasterPasswordSetupScreen(
                 onValueChange = viewModel::onMasterPasswordChanged,
                 label = "Master Password",
                 placeholder = "Enter master password",
-                isPassword = true,
-                passwordVisible = state.showPassword,
-                onPasswordVisibilityToggle = { viewModel.toggleShowPassword() }
+                isPassword = true
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -103,18 +101,7 @@ fun MasterPasswordSetupScreen(
                 onValueChange = viewModel::onConfirmPasswordChanged,
                 label = "Confirm Password",
                 placeholder = "Re-enter master password",
-                isPassword = true,
-                passwordVisible = state.showConfirmPassword,
-                onPasswordVisibilityToggle = { viewModel.toggleShowConfirmPassword() },
-                trailingIcon = if (state.confirmPassword.isNotEmpty()) {
-                    if (state.passwordsMatch) {
-                        com.lockedin.app.core.ui.components.TextFieldTrailingIcon.Success
-                    } else {
-                        com.lockedin.app.core.ui.components.TextFieldTrailingIcon.Error
-                    }
-                } else {
-                    com.lockedin.app.core.ui.components.TextFieldTrailingIcon.None
-                }
+                isPassword = true
             )
         }
 

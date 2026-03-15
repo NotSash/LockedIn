@@ -12,7 +12,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBack
-import androidx.compose.material.icons.rounded.QrCodeScanner
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -92,16 +91,14 @@ fun AddEditScreen(
                 value = state.siteUrl,
                 onValueChange = viewModel::onSiteUrlChange,
                 label = "Website URL",
-                placeholder = "https://example.com",
-                leadingIcon = com.lockedin.app.core.ui.components.TextFieldLeadingIcon.Globe
+                placeholder = "https://example.com"
             )
 
             NeumorphicTextField(
                 value = state.username,
                 onValueChange = viewModel::onUsernameChange,
                 label = "Username / Email",
-                placeholder = "you@example.com",
-                leadingIcon = com.lockedin.app.core.ui.components.TextFieldLeadingIcon.User
+                placeholder = "you@example.com"
             )
 
             NeumorphicTextField(
@@ -113,12 +110,7 @@ fun AddEditScreen(
                 },
                 label = "Password",
                 placeholder = "Enter or generate a password",
-                isPassword = true,
-                leadingIcon = com.lockedin.app.core.ui.components.TextFieldLeadingIcon.Lock,
-                trailingIcon = com.lockedin.app.core.ui.components.TextFieldTrailingIcon.Action(
-                    icon = Icons.Rounded.QrCodeScanner,
-                    onClick = { /* open generator sheet later */ }
-                )
+                isPassword = true
             )
 
             AnimatedStrengthMeter(
@@ -130,9 +122,7 @@ fun AddEditScreen(
                 value = state.notes,
                 onValueChange = viewModel::onNotesChange,
                 label = "Notes",
-                placeholder = "Add notes, security questions, recovery info...",
-                singleLine = false,
-                maxLines = 4
+                placeholder = "Add notes, security questions, recovery info..."
             )
 
             NeumorphicTextField(

@@ -96,13 +96,11 @@ fun HomeScreen(
         } else {
             if (state.passwords.isEmpty()) {
                 EmptyStateView(
+                    title = "Your vault is empty",
+                    message = "Add your first password to get started.",
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(padding),
-                    title = "Your vault is empty",
-                    description = "Add your first password to get started.",
-                    primaryButtonText = "Add Password",
-                    onPrimaryClick = callbacks.onNavigateToAddPassword
+                        .padding(padding)
                 )
             } else {
                 HomeContent(
