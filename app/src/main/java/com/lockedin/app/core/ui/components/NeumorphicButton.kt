@@ -81,7 +81,7 @@ fun NeumorphicButton(
                 onPressStateChange = { pressed = it },
                 onClick = {
                     if (!enabled) return@neumorphicClickable
-                    haptics.performHapticFeedback(HapticFeedbackType.LightTap)
+                    haptics.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                     onClick()
                 }
             ),
@@ -102,7 +102,7 @@ fun NeumorphicButton(
     }
 }
 
-private fun Modifier.neumorphicBackground(
+fun Modifier.neumorphicBackground(
     baseColor: Color,
     lightShadow: Color,
     darkShadow: Color,

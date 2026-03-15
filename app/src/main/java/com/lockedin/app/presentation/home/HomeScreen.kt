@@ -68,7 +68,13 @@ fun HomeScreen(
         modifier = modifier.fillMaxSize(),
         topBar = {
             GlassmorphicTopBar(
-                title = "LockedIn",
+                title = {
+                    Text(
+                        text = "LockedIn",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
+                },
                 actions = {
                     IconButton(onClick = { viewModel.clearSearch() }) {
                         Icon(

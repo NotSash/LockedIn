@@ -67,7 +67,7 @@ fun CopyButton(
                 shape = CircleShape
             )
             .clickable {
-                haptics.performHapticFeedback(HapticFeedbackType.MediumImpact)
+                haptics.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                 rotation += 360f
                 onCopy()
                 copied = true

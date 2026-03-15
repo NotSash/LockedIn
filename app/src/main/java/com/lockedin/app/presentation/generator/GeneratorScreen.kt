@@ -62,7 +62,13 @@ fun GeneratorScreen(
         modifier = modifier.fillMaxSize(),
         topBar = {
             GlassmorphicTopBar(
-                title = "Generator",
+                title = {
+                    Text(
+                        text = "Generator",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
+                },
                 actions = {
                     IconButton(onClick = { viewModel.generate() }) {
                         Icon(
