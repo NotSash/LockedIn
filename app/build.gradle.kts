@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("plugin.serialization")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.kapt")
 }
