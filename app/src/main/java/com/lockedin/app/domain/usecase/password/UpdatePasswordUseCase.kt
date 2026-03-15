@@ -2,11 +2,12 @@ package com.lockedin.app.domain.usecase.password
 
 import com.lockedin.app.domain.model.PasswordEntry
 import com.lockedin.app.domain.repository.PasswordRepository
+import javax.inject.Inject
 
 /**
  * Updates an existing password entry.
  */
-class UpdatePasswordUseCase(
+class UpdatePasswordUseCase @Inject constructor(
     private val passwordRepository: PasswordRepository
 ) {
 

@@ -4,6 +4,7 @@ import com.lockedin.app.core.security.CryptoManager
 import com.lockedin.app.data.local.converter.CharacterTypes
 import com.lockedin.app.data.local.converter.LockedInTypeConverters
 import com.lockedin.app.data.local.entity.HistoryEntity
+import javax.inject.Inject
 
 data class PasswordHistoryData(
     val id: Long,
@@ -15,7 +16,7 @@ data class PasswordHistoryData(
     val createdAt: Long
 )
 
-class HistoryMapper(
+class HistoryMapper @Inject constructor(
     private val cryptoManager: CryptoManager
 ) {
 

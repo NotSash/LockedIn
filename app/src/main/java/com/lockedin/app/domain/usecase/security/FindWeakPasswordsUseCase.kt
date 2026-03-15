@@ -4,11 +4,12 @@ import com.lockedin.app.domain.model.PasswordEntry
 import com.lockedin.app.domain.repository.PasswordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 /**
  * Identifies weak passwords (strength score < threshold).
  */
-class FindWeakPasswordsUseCase(
+class FindWeakPasswordsUseCase @Inject constructor(
     private val passwordRepository: PasswordRepository
 ) {
 

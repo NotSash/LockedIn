@@ -1,13 +1,14 @@
 package com.lockedin.app.domain.usecase.category
 
 import com.lockedin.app.domain.repository.CategoryRepository
+import javax.inject.Inject
 
 /**
  * Deletes a category by id.
  *
  * Higher layers must ensure entries are reassigned before deletion.
  */
-class DeleteCategoryUseCase(
+class DeleteCategoryUseCase @Inject constructor(
     private val categoryRepository: CategoryRepository
 ) {
 

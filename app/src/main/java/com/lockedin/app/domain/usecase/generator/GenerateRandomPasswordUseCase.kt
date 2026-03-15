@@ -5,6 +5,7 @@ import com.lockedin.app.domain.model.GeneratedPassword
 import kotlin.math.log
 import kotlin.math.log2
 import kotlin.random.Random
+import javax.inject.Inject
 
 /**
  * Generates a random password according to the specified rules.
@@ -14,7 +15,7 @@ import kotlin.random.Random
  *   implementation if you want stronger guarantees.
  * - Returned CharArray should be wiped by callers when no longer needed.
  */
-class GenerateRandomPasswordUseCase(
+class GenerateRandomPasswordUseCase @Inject constructor(
     private val random: Random = Random.Default
 ) {
 

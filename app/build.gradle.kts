@@ -121,7 +121,6 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.sqlite:sqlite:2.4.0")
     implementation("androidx.sqlite:sqlite-framework:2.4.0")
-    implementation("net.zetetic:sqlcipher-android:4.6.0")
 
     // Security: EncryptedSharedPreferences
     implementation("androidx.security:security-crypto:1.1.0-alpha06")

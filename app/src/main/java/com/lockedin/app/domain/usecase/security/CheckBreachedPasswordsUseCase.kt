@@ -4,6 +4,7 @@ import com.lockedin.app.domain.repository.BreachRepository
 import com.lockedin.app.domain.repository.PasswordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 /**
  * Runs HaveIBeenPwned checks for all passwords and returns ids that are compromised.
@@ -11,7 +12,7 @@ import kotlinx.coroutines.withContext
  * SECURITY:
  * - Uses BreachRepository which implements the k-anonymity protocol.
  */
-class CheckBreachedPasswordsUseCase(
+class CheckBreachedPasswordsUseCase @Inject constructor(
     private val passwordRepository: PasswordRepository,
     private val breachRepository: BreachRepository
 ) {

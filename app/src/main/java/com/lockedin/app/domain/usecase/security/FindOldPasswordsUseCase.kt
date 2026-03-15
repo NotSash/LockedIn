@@ -4,11 +4,12 @@ import com.lockedin.app.domain.model.PasswordEntry
 import com.lockedin.app.domain.repository.PasswordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 /**
  * Identifies passwords that have not been updated for longer than thresholdDays.
  */
-class FindOldPasswordsUseCase(
+class FindOldPasswordsUseCase @Inject constructor(
     private val passwordRepository: PasswordRepository
 ) {
 

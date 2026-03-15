@@ -3,13 +3,14 @@ package com.lockedin.app.domain.usecase.generator
 import com.lockedin.app.domain.model.CharacterTypes
 import com.lockedin.app.domain.model.GeneratedPassword
 import kotlin.random.Random
+import javax.inject.Inject
 
 /**
  * Generates a human-readable passphrase made from random words.
  *
  * You can replace the built-in word list with an injected larger list later.
  */
-class GeneratePassphraseUseCase(
+class GeneratePassphraseUseCase @Inject constructor(
     private val random: Random = Random.Default
 ) {
 

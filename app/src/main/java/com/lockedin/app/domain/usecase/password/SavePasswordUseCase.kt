@@ -2,6 +2,7 @@ package com.lockedin.app.domain.usecase.password
 
 import com.lockedin.app.domain.model.PasswordEntry
 import com.lockedin.app.domain.repository.PasswordRepository
+import javax.inject.Inject
 
 /**
  * Creates a new password entry in the vault.
@@ -10,7 +11,7 @@ import com.lockedin.app.domain.repository.PasswordRepository
  * - Caller must ensure PasswordEntry.password is wiped from memory
  *   once it is no longer needed.
  */
-class SavePasswordUseCase(
+class SavePasswordUseCase @Inject constructor(
     private val passwordRepository: PasswordRepository
 ) {
 

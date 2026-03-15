@@ -4,6 +4,7 @@ import com.lockedin.app.domain.model.SecurityReport
 import com.lockedin.app.domain.repository.PasswordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 /**
  * Runs the full security audit pipeline:
@@ -13,7 +14,7 @@ import kotlinx.coroutines.withContext
  * - breached passwords (via HIBP)
  * - overall score
  */
-class RunFullAuditUseCase(
+class RunFullAuditUseCase @Inject constructor(
     private val passwordRepository: PasswordRepository,
     private val findWeakPasswords: FindWeakPasswordsUseCase,
     private val findReusedPasswords: FindReusedPasswordsUseCase,

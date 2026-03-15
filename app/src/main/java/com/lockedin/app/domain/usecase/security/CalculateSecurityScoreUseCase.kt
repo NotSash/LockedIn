@@ -4,6 +4,7 @@ import com.lockedin.app.domain.model.PasswordEntry
 import com.lockedin.app.domain.repository.PasswordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 /**
  * Calculates an overall security score for the vault (0..100) based on:
@@ -12,7 +13,7 @@ import kotlinx.coroutines.withContext
  *
  * This is a heuristic score used for UI, not a formal metric.
  */
-class CalculateSecurityScoreUseCase(
+class CalculateSecurityScoreUseCase @Inject constructor(
     private val passwordRepository: PasswordRepository
 ) {
 

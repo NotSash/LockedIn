@@ -5,6 +5,7 @@ import com.lockedin.app.domain.repository.PasswordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.security.MessageDigest
+import javax.inject.Inject
 
 /**
  * Identifies groups of entries that reuse the same password (based on in-memory hash).
@@ -12,7 +13,7 @@ import java.security.MessageDigest
  * SECURITY:
  * - Hashes are kept in memory only and not persisted.
  */
-class FindReusedPasswordsUseCase(
+class FindReusedPasswordsUseCase @Inject constructor(
     private val passwordRepository: PasswordRepository
 ) {
 

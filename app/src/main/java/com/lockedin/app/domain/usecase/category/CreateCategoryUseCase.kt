@@ -2,13 +2,14 @@ package com.lockedin.app.domain.usecase.category
 
 import com.lockedin.app.domain.model.Category
 import com.lockedin.app.domain.repository.CategoryRepository
+import javax.inject.Inject
 
 /**
  * Creates or updates a category.
  *
  * For new categories, id should be 0; for updates, id must be non-zero.
  */
-class CreateCategoryUseCase(
+class CreateCategoryUseCase @Inject constructor(
     private val categoryRepository: CategoryRepository
 ) {
 

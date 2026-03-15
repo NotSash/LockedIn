@@ -4,13 +4,14 @@ import com.lockedin.app.domain.model.CharacterTypes
 import com.lockedin.app.domain.model.GeneratedPassword
 import com.lockedin.app.domain.model.PasswordHistory
 import com.lockedin.app.domain.repository.HistoryRepository
+import javax.inject.Inject
 
 /**
  * Saves a generated password into the history list.
  *
  * Repository is responsible for trimming history to max size (e.g., 100 entries).
  */
-class SaveToHistoryUseCase(
+class SaveToHistoryUseCase @Inject constructor(
     private val historyRepository: HistoryRepository
 ) {
 
