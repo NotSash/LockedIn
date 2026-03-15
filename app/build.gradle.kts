@@ -149,6 +149,9 @@ dependencies {
     // Glance widgets
     implementation("androidx.glance:glance-appwidget:1.1.0")
 
+    // SQLCipher for encrypted Room database
+    implementation("net.zetetic:android-database-sqlcipher:4.5.4")
+
     // SplashScreen
     implementation("androidx.core:core-splashscreen:1.0.1")
 
