@@ -13,8 +13,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.icons.Icons
-import androidx.compose.material3.icons.filled.Backspace
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Backspace
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
