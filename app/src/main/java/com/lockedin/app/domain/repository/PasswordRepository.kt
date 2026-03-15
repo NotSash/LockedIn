@@ -10,6 +10,11 @@ interface PasswordRepository {
 
     fun getAll(): Flow<List<PasswordEntry>>
 
+    /**
+     * Returns a snapshot of all entries once (used by audit use cases).
+     */
+    suspend fun getAllOnce(): List<PasswordEntry>
+
     suspend fun getById(id: Long): PasswordEntry?
 
     fun search(query: String): Flow<List<PasswordEntry>>
