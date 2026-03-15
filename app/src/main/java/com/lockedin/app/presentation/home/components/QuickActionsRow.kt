@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.lockedin.app.core.ui.components.GlassmorphicSurface
+import androidx.compose.foundation.clickable
 
 enum class QuickActionType {
     GENERATE,
@@ -75,7 +76,7 @@ private fun QuickActionCard(
         modifier = Modifier
             .height(120.dp)
             .width(100.dp)
-            .clickableWithScale(onClick)
+            .clickable(onClick = onClick)
     ) {
         Column(
             modifier = Modifier
@@ -96,14 +97,4 @@ private fun QuickActionCard(
         }
     }
 }
-
-@Composable
-private fun Modifier.clickableWithScale(onClick: () -> Unit): Modifier =
-    this.then(
-        androidx.compose.foundation.clickable(
-            interactionSource = androidx.compose.foundation.interaction.MutableInteractionSource(),
-            indication = null,
-            onClick = onClick
-        )
-    )
 

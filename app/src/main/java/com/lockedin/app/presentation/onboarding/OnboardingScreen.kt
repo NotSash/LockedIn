@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.clickable
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Surface
@@ -105,13 +106,8 @@ fun OnboardingScreen(
                     modifier = Modifier
                         .padding(top = 8.dp)
                         .scale(1.0f)
-                        .then(
-                            Modifier
-                                .padding(4.dp)
-                                .neumorphicClickable {
-                                    viewModel.onSkip()
-                                }
-                        )
+                        .padding(4.dp)
+                        .clickable { viewModel.onSkip() }
                 )
             }
 
@@ -355,18 +351,4 @@ private fun OnboardingPagerIndicator(
         }
     }
 }
-
-/**
- * Simple clickable effect that can be replaced with a more complete neumorphic
- * interaction; kept minimal here to avoid circular dependency with components.
- */
-private fun Modifier.neumorphicClickable(
-    onClick: () -> Unit
-): Modifier = this.then(
-    androidx.compose.foundation.clickable(
-        interactionSource = androidx.compose.foundation.interaction.MutableInteractionSource(),
-        indication = null,
-        onClick = onClick
-    )
-)
 

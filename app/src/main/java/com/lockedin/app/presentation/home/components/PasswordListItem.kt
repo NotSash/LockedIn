@@ -52,11 +52,10 @@ fun PasswordListItem(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-                Favicon(
-                    siteName = entry.siteName,
-                    faviconUrl = entry.faviconUrl,
-                    colorHex = entry.colorLabelHex
-                )
+            Favicon(
+                siteName = entry.siteName,
+                faviconUrl = entry.faviconUrl
+            )
 
             Column(
                 modifier = Modifier.weight(1f),
