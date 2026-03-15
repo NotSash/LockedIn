@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.lockedin.app.MainActivity
 import com.lockedin.app.core.ui.theme.LockedInTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,10 +20,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SplashActivity : ComponentActivity() {
 
-    private lateinit var splashScreen: SplashScreen
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        splashScreen = SplashScreen.installSplashScreen(this)
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
 
         splashScreen.setKeepOnScreenCondition { false }
