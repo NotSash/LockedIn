@@ -116,7 +116,7 @@ dependencies {
     implementation("net.zetetic:sqlcipher-android:4.6.0")
 
     // Security: EncryptedSharedPreferences
-    implementation("androidx.security:security-crypto:1.0.0")
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
     // Biometric
     implementation("androidx.biometric:biometric:1.1.0")

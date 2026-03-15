@@ -1,6 +1,6 @@
 package com.lockedin.app.receiver
 
-import android.app.BroadcastReceiver
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import com.lockedin.app.core.security.SecureClipboardManager
@@ -20,4 +20,3 @@ class ScreenLockReceiver : BroadcastReceiver() {
         }
     }
 }
-

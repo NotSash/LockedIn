@@ -1,10 +1,11 @@
 package com.lockedin.app.core.ui.components
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.expandHorizontally
-import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -27,6 +29,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.unit.Dp
@@ -39,8 +42,8 @@ import com.lockedin.app.core.ui.animation.SpringNavPill
 data class BottomNavItemUi(
     val key: String,
     val label: String,
-    val icon: androidx.compose.ui.graphics.vector.ImageVector,
-    val selectedIcon: androidx.compose.ui.graphics.vector.ImageVector
+    val icon: ImageVector,
+    val selectedIcon: ImageVector
 )
 
 @Composable
@@ -109,9 +112,8 @@ fun AnimatedBottomNavBar(
                             Icon(
                                 imageVector = if (selected) item.selectedIcon else item.icon,
                                 contentDescription = item.label,
-                                tint = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(
-                                    alpha = 0.7f
-                                ),
+                                tint = if (selected) MaterialTheme.colorScheme.primary
+                                else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
                                 modifier = Modifier
                                     .scale(scale)
                                     .alpha(alpha)
@@ -141,9 +143,13 @@ private fun NavPill(
     width: Dp,
     color: Color
 ) {
+    // Use spring<Dp> here instead of SpringNavPill (which is SpringSpec<Float>)
     val animatedWidth by animateDpAsState(
         targetValue = width,
-        animationSpec = SpringNavPill,
+        animationSpec = spring(
+            dampingRatio = 0.7f,
+            stiffness = 300f
+        ),
         label = "navPillWidth"
     )
 
@@ -156,4 +162,3 @@ private fun NavPill(
             .background(color)
     )
 }
-
