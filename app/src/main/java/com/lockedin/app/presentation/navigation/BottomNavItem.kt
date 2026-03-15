@@ -1,10 +1,8 @@
 package com.lockedin.app.presentation.navigation
 
-import androidx.annotation.DrawableRes
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Category
 import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.rounded.Key
+import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 
@@ -24,12 +22,12 @@ enum class BottomNavItem(
     GENERATOR(
         screen = Screen.Generator,
         label = "Generator",
-        icon = Icons.Rounded.Key
+        icon = Icons.Rounded.Lock
     ),
     CATEGORIES(
         screen = Screen.Categories,
         label = "Categories",
-        icon = Icons.Rounded.Category
+        icon = Icons.Rounded.Lock
     ),
     SETTINGS(
         screen = Screen.Settings,

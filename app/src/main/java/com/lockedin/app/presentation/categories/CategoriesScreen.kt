@@ -58,7 +58,13 @@ fun CategoriesScreen(
         modifier = modifier.fillMaxSize(),
         topBar = {
             GlassmorphicTopBar(
-                title = "Categories",
+                title = {
+                    Text(
+                        text = "Categories",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
+                },
                 navigationIcon = {
                     IconButton(onClick = callbacks.onBack) {
                         Icon(

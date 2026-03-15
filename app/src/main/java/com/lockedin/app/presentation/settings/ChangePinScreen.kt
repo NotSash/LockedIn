@@ -46,7 +46,13 @@ fun ChangePinScreen(
         modifier = modifier.fillMaxSize(),
         topBar = {
             GlassmorphicTopBar(
-                title = "Change PIN",
+                title = {
+                    Text(
+                        text = "Change PIN",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
+                },
                 navigationIcon = {
                     IconButton(onClick = callbacks.onBack) {
                         Icon(

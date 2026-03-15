@@ -46,7 +46,13 @@ fun ChangePasswordScreen(
         modifier = modifier.fillMaxSize(),
         topBar = {
             GlassmorphicTopBar(
-                title = "Change Master Password",
+                title = {
+                    Text(
+                        text = "Change Master Password",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
+                },
                 navigationIcon = {
                     IconButton(onClick = callbacks.onBack) {
                         Icon(
