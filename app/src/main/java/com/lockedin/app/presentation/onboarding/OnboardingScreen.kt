@@ -75,9 +75,10 @@ fun OnboardingScreen(
         }
     }
 
-    if (state.isCompleted && state.wantsGuidedTour != null) {
-        LaunchedEffect(state.isCompleted, state.wantsGuidedTour) {
-            callbacks.onFinished(state.wantsGuidedTour)
+    val wantsTour = state.wantsGuidedTour
+    if (state.isCompleted && wantsTour != null) {
+        LaunchedEffect(state.isCompleted, wantsTour) {
+            callbacks.onFinished(wantsTour)
         }
     }
 

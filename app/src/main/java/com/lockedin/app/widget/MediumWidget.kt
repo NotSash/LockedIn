@@ -1,14 +1,11 @@
 package com.lockedin.app.widget
 
 import android.content.Context
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
-import androidx.glance.appwidget.appWidgetBackground
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
 import androidx.glance.layout.Alignment
@@ -21,6 +18,9 @@ import androidx.glance.layout.padding
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
+import androidx.glance.GlanceComposable
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
 import com.lockedin.app.MainActivity
 
 /**
@@ -32,15 +32,12 @@ import com.lockedin.app.MainActivity
 class MediumWidget : GlanceAppWidget() {
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-        provideContent {
-            LockedInWidgetTheme.Content(darkTheme = true) {
-                MediumWidgetContent()
-            }
-        }
+        provideContent { MediumWidgetContent() }
     }
 }
 
 @Composable
+@GlanceComposable
 private fun MediumWidgetContent() {
     Column(
         modifier = GlanceModifier

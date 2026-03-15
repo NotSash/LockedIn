@@ -1,8 +1,6 @@
 package com.lockedin.app.widget
 
 import android.content.Context
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.action.actionStartActivity
@@ -18,6 +16,9 @@ import androidx.glance.layout.padding
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
+import androidx.glance.GlanceComposable
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
 import com.lockedin.app.MainActivity
 
 /**
@@ -28,15 +29,12 @@ import com.lockedin.app.MainActivity
 class SmallWidget : GlanceAppWidget() {
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-        provideContent {
-            LockedInWidgetTheme.Content(darkTheme = true) {
-                SmallWidgetContent()
-            }
-        }
+        provideContent { SmallWidgetContent() }
     }
 }
 
 @Composable
+@GlanceComposable
 private fun SmallWidgetContent() {
     Box(
         modifier = GlanceModifier
