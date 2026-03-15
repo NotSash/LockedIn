@@ -48,15 +48,9 @@ fun PasswordDisplayCard(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             } else {
-                val textSize = when {
-                    password.length <= 24 -> 24.sp
-                    password.length <= 40 -> 18.sp
-                    else -> 16.sp
-                }
+                val text = String(password.value)
                 PasswordText(
-                    value = password.value,
-                    fontSize = textSize,
-                    isAnimating = isGenerating
+                    password = text
                 )
             }
         }

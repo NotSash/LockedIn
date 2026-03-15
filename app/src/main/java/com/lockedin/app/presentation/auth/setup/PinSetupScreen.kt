@@ -125,10 +125,12 @@ fun PinSetupScreen(
         )
 
         NeumorphicPinPad(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f),
-            onDigitPressed = { digit ->
+            digitsEntered = if (!state.isOnPinConfirmStep) {
+                state.pinFirstEntry.length
+            } else {
+                state.pinConfirmEntry.length
+            },
+            onDigit = { digit ->
                 viewModel.onPinDigitEntered(digit)
                 val currentLen = if (!state.isOnPinConfirmStep) {
                     viewModel.uiState.value.pinFirstEntry.length
@@ -140,10 +142,9 @@ fun PinSetupScreen(
                 }
             },
             onBackspace = { viewModel.onPinBackspace() },
-            springSpec = spring(
-                dampingRatio = Spring.DampingRatioMediumBouncy,
-                stiffness = Spring.StiffnessMedium
-            )
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
         )
 
         Spacer(modifier = Modifier.height(12.dp))

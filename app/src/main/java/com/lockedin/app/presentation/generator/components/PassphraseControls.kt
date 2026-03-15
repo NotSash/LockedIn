@@ -140,9 +140,7 @@ private fun SeparatorChip(
 ) {
     NeumorphicButton(
         text = label,
-        onClick = onClick,
-        isSelected = selected,
-        modifier = Modifier.defaultMinSize(minWidth = 48.dp)
+        onClick = onClick
     )
 }
 

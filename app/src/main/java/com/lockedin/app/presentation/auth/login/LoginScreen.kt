@@ -144,15 +144,12 @@ fun LoginScreen(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 NeumorphicPinPad(
+                    digitsEntered = state.pinInput.length,
+                    onDigit = { viewModel.onPinDigit(it) },
+                    onBackspace = { viewModel.onPinBackspace() },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(1f),
-                    onDigitPressed = { viewModel.onPinDigit(it) },
-                    onBackspace = { viewModel.onPinBackspace() },
-                    springSpec = spring(
-                        dampingRatio = Spring.DampingRatioMediumBouncy,
-                        stiffness = Spring.StiffnessMedium
-                    )
+                        .weight(1f)
                 )
             }
         }
@@ -170,9 +167,7 @@ fun LoginScreen(
                     onValueChange = viewModel::onMasterPasswordChanged,
                     label = "Master Password",
                     placeholder = "Enter master password",
-                    isPassword = true,
-                    passwordVisible = state.masterPasswordVisible,
-                    onPasswordVisibilityToggle = { viewModel.toggleMasterPasswordVisible() }
+                    isPassword = true
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 NeumorphicButton(

@@ -59,7 +59,13 @@ fun DetailScreen(
         modifier = modifier.fillMaxSize(),
         topBar = {
             GlassmorphicTopBar(
-                title = state.entry?.siteName ?: "Details",
+                title = {
+                    Text(
+                        text = state.entry?.siteName ?: "Details",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
+                },
                 navigationIcon = {
                     IconButton(onClick = callbacks.onBack) {
                         Icon(

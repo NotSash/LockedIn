@@ -13,6 +13,7 @@ import com.lockedin.app.domain.repository.BreachRepository
 import com.lockedin.app.domain.repository.CategoryRepository
 import com.lockedin.app.domain.repository.HistoryRepository
 import com.lockedin.app.domain.repository.PasswordRepository
+import kotlinx.coroutines.flow.map
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

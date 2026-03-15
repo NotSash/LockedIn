@@ -193,10 +193,8 @@ private fun HomeContent(
                             callbacks = PasswordItemCallbacks(
                                 onClick = { callbacks.onNavigateToDetail(entry.id) },
                                 onCopyPassword = {
-                                    callbacks.onCopyPassword(entry.password)
-                                    LaunchedEffect(entry.id) {
-                                        snackbarHostState.showSnackbar("Password copied")
-                                    }
+                                    val text = entry.password.concatToString()
+                                    callbacks.onCopyPassword(text)
                                 },
                                 onLongPress = { /* context menu sheet later */ }
                             )
@@ -209,10 +207,8 @@ private fun HomeContent(
                             callbacks = PasswordItemCallbacks(
                                 onClick = { callbacks.onNavigateToDetail(entry.id) },
                                 onCopyPassword = {
-                                    callbacks.onCopyPassword(entry.password)
-                                    LaunchedEffect(entry.id) {
-                                        snackbarHostState.showSnackbar("Password copied")
-                                    }
+                                    val text = entry.password.concatToString()
+                                    callbacks.onCopyPassword(text)
                                 },
                                 onLongPress = { }
                             )
