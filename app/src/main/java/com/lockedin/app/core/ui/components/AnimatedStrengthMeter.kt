@@ -52,6 +52,7 @@ fun AnimatedStrengthMeter(
         clamped < 75 -> MaterialTheme.colorScheme.primary
         else -> DarkSuccess
     }
+    val trackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
 
     val fraction by animateFloatAsState(
         targetValue = targetFraction,
@@ -73,7 +74,7 @@ fun AnimatedStrengthMeter(
             .drawBehind {
                 val radius = size.height / 2
                 drawRoundRect(
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f),
+                    color = trackColor,
                     cornerRadius = androidx.compose.ui.geometry.CornerRadius(radius)
                 )
                 drawRoundRect(

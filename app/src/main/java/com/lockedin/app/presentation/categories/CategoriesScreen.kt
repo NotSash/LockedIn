@@ -145,14 +145,17 @@ private fun CategoryCard(
     count: Int,
     onClick: () -> Unit
 ) {
-    val color = Color(colorHex)
-                ClaymorphicCard(
+    val color = try {
+        Color(android.graphics.Color.parseColor(colorHex))
+    } catch (e: IllegalArgumentException) {
+        MaterialTheme.colorScheme.primary
+    }
+    ClaymorphicCard(
         modifier = Modifier
             .fillMaxWidth()
             .height(120.dp)
             .clickable(onClick = onClick),
-        backgroundColor = color.copy(alpha = 0.15f),
-        shadowColor = color.copy(alpha = 0.4f)
+        color = color.copy(alpha = 0.15f)
     ) {
         Column(
             modifier = Modifier
