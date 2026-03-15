@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.lockedin.app.core.security.BiometricHelper
+import com.lockedin.app.core.security.SecureClipboardManager
 import com.lockedin.app.core.ui.theme.LockedInTheme
+import com.lockedin.app.presentation.navigation.LockedInRootNav
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -46,22 +43,16 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             LockedInTheme {
-                LockedInRoot()
-            }
-        }
-    }
-}
+                val clipboardManager = SecureClipboardManager(this)
+                val biometricHelper = BiometricHelper(this)
+                val clipboardTimeoutMillis = 30_000L
 
-@Composable
-private fun LockedInRoot() {
-    Surface(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(text = "LockedIn • Core Setup")
+                LockedInRootNav(
+                    clipboardManager = clipboardManager,
+                    clipboardTimeoutMillis = clipboardTimeoutMillis,
+                    biometricHelper = biometricHelper
+                )
+            }
         }
     }
 }
