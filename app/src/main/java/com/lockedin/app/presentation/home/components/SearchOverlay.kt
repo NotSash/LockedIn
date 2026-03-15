@@ -71,10 +71,9 @@ fun SearchOverlay(
                             }
                         }
                     },
-                    colors = TextFieldDefaults.textFieldColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
-                        textColor = MaterialTheme.colorScheme.onSurface,
-                        placeholderColor = MaterialTheme.colorScheme.onSurfaceVariant
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
+                        unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f)
                     )
                 )
             }

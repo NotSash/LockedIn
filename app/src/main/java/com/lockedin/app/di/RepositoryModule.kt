@@ -226,8 +226,8 @@ private fun com.lockedin.app.data.local.converter.CharacterTypes.toDomain():
     com.lockedin.app.domain.model.CharacterTypes(
         upper = upper,
         lower = lower,
-        numbers = numbers,
-        symbols = symbols
+        numbers = num,
+        symbols = sym
     )
 
 private fun com.lockedin.app.domain.model.CharacterTypes.toData():
@@ -235,7 +235,7 @@ private fun com.lockedin.app.domain.model.CharacterTypes.toData():
     com.lockedin.app.data.local.converter.CharacterTypes(
         upper = upper,
         lower = lower,
-        numbers = numbers,
-        symbols = symbols
+        num = numbers,
+        sym = symbols
     )
 
