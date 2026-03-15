@@ -31,6 +31,10 @@ fun TotpDisplay(
         label = "totpProgress"
     )
 
+    // Precompute colors in composable scope to avoid calling composables inside the draw lambda
+    val trackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
+    val progressColor = MaterialTheme.colorScheme.primary
+
     Box(
         modifier = modifier.size(80.dp),
         contentAlignment = Alignment.Center
@@ -43,7 +47,7 @@ fun TotpDisplay(
                 (size.height - radius * 2) / 2f
             )
             drawArc(
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f),
+                color = trackColor,
                 startAngle = 0f,
                 sweepAngle = 360f,
                 useCenter = false,
@@ -52,7 +56,7 @@ fun TotpDisplay(
                 style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
             )
             drawArc(
-                color = MaterialTheme.colorScheme.primary,
+                color = progressColor,
                 startAngle = -90f,
                 sweepAngle = 360f * animatedProgress,
                 useCenter = false,

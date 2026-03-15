@@ -8,10 +8,11 @@ import androidx.compose.ui.text.googlefonts.Font
 import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.unit.sp
 
+// Note: we explicitly select the @ArrayRes Int overload for certificates
 private val provider = GoogleFont.Provider(
     providerAuthority = "com.google.android.gms.fonts",
     providerPackage = "com.google.android.gms",
-    certificates = androidx.compose.ui.text.googlefonts.R.array.com_google_android_gms_fonts_certs
+    certificates = androidx.compose.ui.text.googlefonts.R.array.com_google_android_gms_fonts_certs as Int
 )
 
 // Space Grotesk for headings

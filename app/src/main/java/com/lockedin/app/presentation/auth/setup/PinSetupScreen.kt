@@ -80,8 +80,15 @@ fun PinSetupScreen(
             } else {
                 state.pinConfirmEntry.length
             }
+
             repeat(total) { index ->
                 val isFilled = index < filled
+
+                // Resolve colors in composable scope, not inside Canvas draw lambda
+                val dotColor =
+                    if (isFilled) MaterialTheme.colorScheme.primary
+                    else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f)
+
                 androidx.compose.foundation.Canvas(
                     modifier = Modifier
                         .height(16.dp)
@@ -89,8 +96,7 @@ fun PinSetupScreen(
                 ) {
                     val radius = size.minDimension / 2f
                     drawCircle(
-                        color = if (isFilled) MaterialTheme.colorScheme.primary else
-                            MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f),
+                        color = dotColor,
                         radius = radius
                     )
                 }

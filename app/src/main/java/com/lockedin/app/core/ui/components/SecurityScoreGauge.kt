@@ -47,27 +47,29 @@ fun SecurityScoreGauge(
         modifier = modifier,
         contentAlignment = Alignment.Center
     ) {
+        // Precompute colors in composable scope to avoid calling composables inside the draw lambda
+        val backgroundColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.15f)
+        val gaugeColor = when {
+            clamped < 25 -> MaterialTheme.colorScheme.error
+            clamped < 50 -> MaterialTheme.colorScheme.error
+            clamped < 75 -> MaterialTheme.colorScheme.tertiary
+            clamped < 100 -> MaterialTheme.colorScheme.primary
+            else -> MaterialTheme.colorScheme.tertiary
+        }
+
         Canvas(modifier = Modifier.size(140.dp)) {
             val thickness = 10.dp.toPx()
             val sweepAngle = sweepAnim.value * 270f
             val startAngle = 135f
 
             drawArc(
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.15f),
+                color = backgroundColor,
                 startAngle = startAngle,
                 sweepAngle = 270f,
                 useCenter = false,
                 style = Stroke(width = thickness, cap = StrokeCap.Round),
                 size = Size(size.width, size.height)
             )
-
-            val gaugeColor = when {
-                clamped < 25 -> MaterialTheme.colorScheme.error
-                clamped < 50 -> MaterialTheme.colorScheme.error
-                clamped < 75 -> MaterialTheme.colorScheme.tertiary
-                clamped < 100 -> MaterialTheme.colorScheme.primary
-                else -> MaterialTheme.colorScheme.tertiary
-            }
 
             drawArc(
                 color = gaugeColor,
