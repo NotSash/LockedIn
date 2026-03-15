@@ -11,7 +11,7 @@ import javax.inject.Inject
  * You can replace the built-in word list with an injected larger list later.
  */
 class GeneratePassphraseUseCase @Inject constructor(
-    private val random: Random = Random.Default
+    private val random: Random
 ) {
 
     private val defaultWords: List<String> = listOf(

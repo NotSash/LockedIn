@@ -12,6 +12,7 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
+import kotlin.random.Random
 
 /**
  * Application-wide, non-feature-specific dependencies.
@@ -38,6 +39,10 @@ object AppModule {
 
     @Provides
     fun provideMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
+
+    @Provides
+    @Singleton
+    fun provideKotlinRandom(): Random = Random.Default
 
     /**
      * Preferences DataStore used for non-cryptographic, non-secret user settings

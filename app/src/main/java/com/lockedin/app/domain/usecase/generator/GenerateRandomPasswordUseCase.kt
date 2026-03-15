@@ -16,7 +16,7 @@ import javax.inject.Inject
  * - Returned CharArray should be wiped by callers when no longer needed.
  */
 class GenerateRandomPasswordUseCase @Inject constructor(
-    private val random: Random = Random.Default
+    private val random: Random
 ) {
 
     operator fun invoke(
